@@ -1,0 +1,79 @@
+.hero {
+    width: 100vw;
+    height: 100vh;
+    &__background {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+        overflow: hidden;
+        height: 200vh;
+        img {
+            display: block;
+            margin: 0px auto;
+            width: 90%;
+            animation: anim-bg 40s ease infinite;
+            @keyframes anim-bg {
+                0% {
+                    transform: scale(1)
+                }
+                50% {
+                    transform: scale(1.2)
+                }
+                100% {
+                    transform: scale(1)
+                }
+            }
+        }
+    }
+    &__dot-top,
+    &__dot-bottom {
+        height: 8px;
+        width: 8px;
+        background-color: white;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    &__dot-top {
+        position: absolute;
+        top: 9px;
+        left: -10px;
+    }
+    &__dot-bottom {
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+    }
+    &__info {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        z-index: 10;
+        h1,
+        h3,
+        p {
+            margin: 5px 0px;
+        }
+        h1 {
+            position: relative;
+            @include createFlex(row, space-between, center, null);
+            width: 50px;
+            font-weight: $f-bold;
+            font-size: pxToRem(40);
+            letter-spacing: 10px;
+        }
+    }
+    &__feature {
+        position: absolute;
+        top: 350px;
+        right: 150px;
+        z-index: 10;
+        width: 100px;
+        padding: 25px 45px;
+        text-align: center;
+        border: 3px solid white;
+        h2 {
+            font-size: pxToRem(30);
+        }
+    }
+}

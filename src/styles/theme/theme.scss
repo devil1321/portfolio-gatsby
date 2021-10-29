@@ -1,0 +1,17 @@
+/*---------------------GLOBAL---------------------------*/
+
+@import '../variables';
+@import '../normalize';
+@import '../mixins';
+@import '../fonts';
+@import '../global';
+
+/*---------------------COMPONENTS-----------------------*/
+
+@import './components/hero';
+@import './components/nav';
+@import './components/feature';
+
+/*---------------------PAGES----------------------------*/
+
+@import './pages/home'

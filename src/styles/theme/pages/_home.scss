@@ -1,0 +1,16 @@
+.home {
+    &__main {
+        padding: 0px 80px;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        z-index: 10;
+    }
+    &__portfolio {
+        padding-top: 100px;
+        h3 {
+            width: 45%;
+            margin: 0px auto;
+        }
+    }
+}

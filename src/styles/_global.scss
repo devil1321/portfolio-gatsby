@@ -1,0 +1,40 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+a,
+p {
+    font-family: $roboto-font;
+    color: white;
+    margin: 5px 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h3 {
+    font-size: pxToRem(20);
+    text-align: center;
+}
+
+h2 {
+    font-size: pxToRem(70);
+    text-align: center;
+}
+
+.main-wrapper {
+    height: 600vh;
+    position: relative;
+    top: -27px;
+    left: 0px;
+    padding: 50px;
+    background-image: url('/background.png');
+}

@@ -1,0 +1,45 @@
+.nav {
+    position: relative;
+    top: 50px;
+    left: 0px;
+    z-index: 10;
+    &__btn {
+        cursor: pointer;
+        width: 70px;
+        @include createFlex(row, space-between, center, null);
+        svg {
+            color: white;
+        }
+    }
+    &__list {
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+    }
+    &__item {
+        max-width: 100px;
+        cursor: pointer;
+        a {
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        margin: 8px 0px;
+        a:before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0px;
+            width: 0%;
+            border-bottom: 2px solid white;
+            transform-origin: center center;
+            transition: all 300ms ease-in-out;
+        }
+        &:hover {
+            a:before {
+                width: 100%;
+            }
+        }
+    }
+}
