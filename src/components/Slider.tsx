@@ -1,19 +1,7 @@
 import React,{useState, useEffect } from 'react'
+import { SlideNode, ArticleNode} from '../interfaces'
 import { gsap } from 'gsap'
 
-interface ArticleNode{
-    node:{
-        title:string;
-        subtitle:string;
-        text:string;
-    }
-}
-
-interface SlideNode{
-        category:string;
-        slides:string[];
-        articles:ArticleNode[]
-}
 
 const Slider:React.FC = ():JSX.Element => {
     const [currentSlides,setCurrentSlides] = useState<SlideNode[]>([])
@@ -23,40 +11,96 @@ const Slider:React.FC = ():JSX.Element => {
     const [slides,setSlides] = useState<SlideNode[]>([
         {
             category:'UX/UI',
-            slides:['project-image-1.png','project-image-2.png','project-image-3.png'],
+            slides:['e-commerce/sale-hub.png','applications/quiz-app.png','applications/todo-app-redux.png'],
             articles:[
                 {
                     node:{
-                        title:'UX/UI',
-                        subtitle:'UX/UI Application',
-                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, odit.l'
-                    }
+                        title:'Sale Hub',
+                        subtitle:'React/Redux/TypeScript/SCSS',
+                        text:'This is a faithful and refreshed version of themeforest store template'
+                    },
                 },
                 {
                     node:{
-                        title:'UX/UI 2',
-                        subtitle:'UX/UI Application',
-                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, odit.l'
-                    }
+                        title:'Quiz-App',
+                        subtitle:'React/SCSS',
+                        text:'Simple draggable and checkable quiz app'
+                    },
                 },
                 {
                     node:{
-                        title:'UX/UI 3',
-                        subtitle:'UX/UI Application',
-                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, odit.l'
+                        title:'Todo App Dates',
+                        subtitle:'React/Redux/SCSS',
+                        text:'Simple Todo List with dates and modify feature'
                     }
                 }
             ]
         },
         {
             category:'Websites',
-            slides:[],
+            slides:['websites/free-landing-page.png','websites/club-in.png','websites/easy-bank.png','websites/ice-and-cake.png','websites/manage-landing-page.png','websites/loopstudios.png','websites/apps-market.png','websites/rooms-homepage.png',],
             articles:[
                 {
                     node:{
-                        title:'',
-                        subtitle:'',
-                        text:''
+                        title:'Free Landing Page',
+                        subtitle:'HTML/CSS/SCSS/JS/SVG/GSAP',
+                        text:'Free Landing Page site with animated SVG and gsap scroll trigger feature.'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Club In',
+                        subtitle:'HTML/CSS/SCSS/JS/XD',
+                        text:'Club In Landing Page with carousels'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Easy Bank',
+                        subtitle:'HTML/CSS/SCSS/JS',
+                        text:'Easy Bank landing page from freeCodeCamp'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Ice And Cake',
+                        subtitle:'HTML/CSS/SCSS/JS/XD',
+                        text:'Ice and Cake copy of a page from an Adobe XD template'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Manage Landing Page',
+                        subtitle:'HTML/CSS/SCSS/JS',
+                        text:'Manage Landing Page from FrontEndMentor'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'LoopStudios',
+                        subtitle:'HTML/CSS/SCSS/JS',
+                        text:'Loop Studios Landing Page from FrontEndMentor'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Apps Market',
+                        subtitle:'HTML/CSS/SCSS/JS/XD',
+                        text:'Apps Market Landing Page from Adobbe XD'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Room Homepage',
+                        subtitle:'HTML/CSS/SCSS/JS',
+                        text:'Simple Room Home Page Landing Page'
                     }
                
                 }
@@ -64,27 +108,67 @@ const Slider:React.FC = ():JSX.Element => {
         },
         {
             category:'Applications',
-            slides:[],
+            slides:['applications/wheather-app.png','applications/quiz-app.png','applications/todo-app-redux.png','applications/todo-draggable.png','applications/static-job-listing.png'],
             articles:[
                 {
                     node:{
-                        title:'',
-                        subtitle:'',
-                        text:''
+                        title:'Wheather App',
+                        subtitle:'React/Redux/SCSS',
+                        text:'My Wheather App builded on OpenWheather API'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Quiz-App',
+                        subtitle:'React/SCSS',
+                        text:'Simple draggable and checkable quiz app'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Todo App Dates',
+                        subtitle:'React/Redux/SCSS',
+                        text:'My simple todo app with option to modify and describes to do items'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Todo App Draggable',
+                        subtitle:'React/SCSS',
+                        text:'Simple Todo List with draggable feature'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Static Job Listing',
+                        subtitle:'React/SCSS',
+                        text:'This is simple site with feature filtering jobs by badges'
                     }
                
                 }
             ]
         },
         {
-            category:'Software',
-            slides:[],
+            category:'E-commerce',
+            slides:['e-commerce/sale-hub.png','e-commerce/easy-shop.png'],
             articles:[
                 {
                     node:{
-                        title:'',
-                        subtitle:'',
-                        text:''
+                        title:'Sale Hub',
+                        subtitle:'React/Redux/TypeScript/SCSS',
+                        text:'This is a faithful and refreshed version of themeforest store template'
+                    }
+               
+                },
+                {
+                    node:{
+                        title:'Easy Shop',
+                        subtitle:'React/SCSS',
+                        text:'This is a simple shop builded with React'
                     }
                
                 }
@@ -209,7 +293,7 @@ const Slider:React.FC = ():JSX.Element => {
                     <li onClick={(e)=>{handleCategory(e)}} className="slider__item active" data-id="UX/UI">UX/UI</li>
                     <li onClick={(e)=>{handleCategory(e)}} className="slider__item" data-id="Websites">Websites</li>
                     <li onClick={(e)=>{handleCategory(e)}} className="slider__item" data-id="Applications">Applications</li>
-                    <li onClick={(e)=>{handleCategory(e)}} className="slider__item" data-id="Software">Software</li>
+                    <li onClick={(e)=>{handleCategory(e)}} className="slider__item" data-id="E-commerce">E-commerce</li>
                 </ul>
             </div>
             <div className="slider__content">

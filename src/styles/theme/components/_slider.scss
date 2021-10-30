@@ -52,13 +52,13 @@
             center,
             null);
             transition: all 1s ease-in-out;
+            transform: translateX(-330px);
         }
         &__img {
-            min-width: 500px;
-            max-width: 500px;
-            transform: translateX(-10%);
+            min-width: 400px;
+            transform: translateX(-280px);
             img {
-                width: 100%;
+                width: 800px;
             }
         }
         &__articles {
