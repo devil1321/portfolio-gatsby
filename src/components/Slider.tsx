@@ -182,9 +182,12 @@ const Slider:React.FC = ():JSX.Element => {
         navBtns.forEach(btn => btn.classList.remove('active'));
         e.target.classList.add('active')
         setCurrentSlides(slides.filter(slide => slide.category === e.target.dataset.id))
+        setAnimCount(0)
+        setCount(0)
+        setMovedBy(0)
     }
     
-    const handleSliderNext = (slides:string[]):void =>{
+    const handleSliderNext = (e:any,length:number):void =>{
         const slider = document.querySelector('.slider__images')
         const img = document.querySelector('.slider__img')
         if(animCount < 2){
@@ -193,35 +196,32 @@ const Slider:React.FC = ():JSX.Element => {
         }else{
             setAnimCount(0)
         }
-        if(count < slides.length - 1){
+        if(count < length - 1){
             setCount(count + 1)
-        }else{
+            setMovedBy(movedBy - img.clientWidth)
+        }else if(count > length - 2){
             setCount(0)
-        }
-        if(movedBy >= -slider.clientWidth){
-            setMovedBy(movedBy + img.clientWidth * (-1))
-        }else{
             setMovedBy(0)
         }
+      
     }
-    const handleSliderPrev = ():void =>{
+    const handleSliderPrev = (e:any,length:number):void =>{
         const slider = document.querySelector<HTMLDivElement>('.slider__images')
         const img = document.querySelector<HTMLDivElement>('.slider__img')
+        console.log(count)
         if(animCount < 0){
-            setCount(2)
             setAnimCount(2)
         }else{
             setAnimCount(animCount - 1)
         }
         if(count > 0){
             setCount(count - 1)
-        }else{
-            setCount(2)
-        }
-        if(movedBy < 0){
             setMovedBy(movedBy + img.clientWidth)
-        }else {
-            setMovedBy(img.clientWidth * (-3))
+        }
+        else if(count === 0){
+            setMovedBy(img.clientWidth * (length - 1) * (-1))
+            setCount(length -1)
+
         }
     }
 
@@ -254,9 +254,9 @@ const Slider:React.FC = ():JSX.Element => {
     }
     const renderArticles = () =>{
         return currentSlides.map(node => {
-            const { title , subtitle, text } = node.articles[count].node  
+            const { title , subtitle, text } = node.articles[count].node 
                  return (
-                     <div className="slider__article">
+                     <div key={title} className="slider__article">
                          <h2>{title}</h2>
                          <h3>{subtitle}</h3>
                          <p>{text}</p>
@@ -270,7 +270,7 @@ const Slider:React.FC = ():JSX.Element => {
         return currentSlides.map(node => {
             return node.slides.map(slide => { 
                  return (
-                     <div className="slider__img">
+                     <div key={slide} className="slider__img">
                          <img src={`/${slide}`} />
                      </div>
              )})
@@ -283,7 +283,6 @@ const Slider:React.FC = ():JSX.Element => {
         }
         handleAnimation(animCount)
         handleSlider(movedBy)
-        console.log(movedBy)
     },[slides,count,currentSlides,movedBy])
 
     return (
@@ -307,8 +306,8 @@ const Slider:React.FC = ():JSX.Element => {
                 <div className="slider__articles">
                    {renderArticles()}
                    <div className="slider__art-controls">
-                       <div className="slider__prev" onClick={()=>{handleSliderPrev()}}></div>
-                       <div className="slider__next" onClick={()=>{handleSliderNext(currentSlides[0].slides)}}></div>
+                       <div className="slider__prev" onClick={(e)=>{handleSliderPrev(e,currentSlides[0].slides.length)}}></div>
+                       <div className="slider__next" onClick={(e)=>{handleSliderNext(e,currentSlides[0].slides.length)}}></div>
                    </div>
                 </div>
             </div>
