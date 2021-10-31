@@ -8,12 +8,14 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
 
 const Nav:React.FC = (): JSX.Element => {
-    const [isOpen,setIsOpen] = useState(false)
+    const [isOpen,setIsOpen] = useState<boolean>(false)
 
 
 const handleNav = ():void =>{
     const itemsNode:any = document.querySelectorAll('.nav__item')
+    const listNode:any = document.querySelector<HTMLUListElement>('.nav__list')
     if(!isOpen){
+        listNode.style.height = `100%`
         gsap.fromTo([...itemsNode],
             {
             y:-150
@@ -22,6 +24,7 @@ const handleNav = ():void =>{
             stagger: 0.2
         })
     }else{
+        listNode.style.height = `${0}px`
         gsap.fromTo([...itemsNode],
             {
             y:0
@@ -33,17 +36,17 @@ const handleNav = ():void =>{
     
 }
 
-useEffect(()=>{
-    handleNav()
-},[isOpen])
 
     return (
         <div className="nav">
-            <div className="nav__btn" onClick={()=>{setIsOpen(!isOpen)}}>
+            <div className="nav__btn" onClick={()=>{
+                setIsOpen(!isOpen)
+                handleNav()
+                }}>
                 <h3>Menu</h3>
                 {isOpen
-                ? <FontAwesomeIcon icon={faChevronDown} />
-                : <FontAwesomeIcon icon={faChevronUp} />}
+                ? <FontAwesomeIcon icon={faChevronUp} />
+                : <FontAwesomeIcon icon={faChevronDown} />}
             </div>
             <ul className="nav__list">
                 <li className="nav__item">

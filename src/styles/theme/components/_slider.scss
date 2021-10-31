@@ -27,6 +27,9 @@
             @include createFlex(row, space-between, center, null);
         }
         &__phone {
+            position: relative;
+            top: 0px;
+            left: 0px;
             width: 50%;
             height: 80vh;
             background-image: url('/carousel-phone.png');
@@ -47,6 +50,9 @@
             overflow: hidden;
         }
         &__images {
+            position: relative;
+            top: 0%;
+            left: 0%;
             @include createFlex(row,
             flex-start,
             center,
@@ -56,9 +62,50 @@
         }
         &__img {
             min-width: 400px;
-            transform: translateX(-280px);
+            transform: translateX(-290px);
             img {
                 width: 800px;
+            }
+        }
+        &__phone-controls {
+            position: absolute;
+            top: 75%;
+            left: 27%;
+            z-index: 20;
+            div {
+                cursor: pointer;
+                position: absolute;
+                top: 80%;
+                left: 0px;
+                height: 40px;
+                width: 40px;
+                background-color: rgba(0, 0, 0, 0.15);
+                border-radius: 5px;
+                @include createFlex(row,
+                center,
+                center,
+                null);
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.25);
+                }
+                &:first-of-type {
+                    left: 170px;
+                }
+                &:nth-of-type(2) {
+                    width: 60px;
+                    left: 90px;
+                    color: white;
+                    font-family: $roboto-font;
+                    font-weight: $f-med;
+                    background-color: rgba(0, 0, 0, 0.25);
+                }
+                &:last-of-type {
+                    left: 30px;
+                    transform: translateX(0px) !important;
+                }
+                svg {
+                    color: yellow;
+                }
             }
         }
         &__articles {

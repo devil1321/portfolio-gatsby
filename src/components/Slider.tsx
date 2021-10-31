@@ -1,5 +1,10 @@
 import React,{useState, useEffect } from 'react'
-import { SlideNode, ArticleNode} from '../interfaces'
+import Link from 'gatsby-link'
+import { SlideNode } from '../interfaces'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+
 import { gsap } from 'gsap'
 
 
@@ -271,7 +276,9 @@ const Slider:React.FC = ():JSX.Element => {
             return node.slides.map(slide => { 
                  return (
                      <div key={slide} className="slider__img">
-                         <img src={`/${slide}`} />
+                         <Link to="#">
+                            <img src={`/${slide}`} />
+                         </Link>
                      </div>
              )})
          })
@@ -297,8 +304,17 @@ const Slider:React.FC = ():JSX.Element => {
             </div>
             <div className="slider__content">
                 <div className="slider__phone">
+                    <div className="slider__phone-controls">
+                        <div className="slider__phone-next">
+                            <FontAwesomeIcon icon = {faChevronRight} onClick={(e)=>{handleSliderNext(e,currentSlides[0].slides.length)}}/>
+                        </div>
+                        <div>{count + 1} / {currentSlides[0]?.slides?.length}</div>
+                        <div className="slider__phone-prev" onClick={(e)=>{handleSliderPrev(e,currentSlides[0].slides.length)}}>
+                            <FontAwesomeIcon icon = {faChevronLeft} />
+                        </div>
+                    </div>
                     <div className="slider__images-wrapper">
-                        <div className="slider__images">
+                        <div className="slider__images">  
                             {renderImages()}
                         </div>
                     </div>
