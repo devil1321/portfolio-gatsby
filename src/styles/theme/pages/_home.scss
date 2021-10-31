@@ -13,4 +13,38 @@
             margin: 0px auto;
         }
     }
+    &__services {
+        position: relative;
+        padding-top: 100px;
+        h3 {
+            width: 48%;
+            margin: 0px auto;
+        }
+    }
+    &__service-wrapper {
+        margin-top: 100px;
+        width: 100%;
+        @include createFlex(row, center, center, wrap);
+    }
+    &__service-content {
+        overflow: hidden;
+        width: 0px;
+        height: 0px;
+        position: relative;
+        left: 50%;
+        top: 0px;
+        width: calc(100% + 180px);
+        padding: 20px;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        @include createFlex(row, center, center, wrap);
+        a {
+            width: calc(100% / 3);
+            margin: 10px;
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
