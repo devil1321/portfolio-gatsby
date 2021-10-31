@@ -4,7 +4,6 @@ import { SlideNode } from '../interfaces'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-
 import { gsap } from 'gsap'
 
 
@@ -229,12 +228,25 @@ const Slider:React.FC = ():JSX.Element => {
 
         }
     }
+    const handleSlideToIndex = (e) =>{
+        const dotsNode:NodeListOf<Element> = document.querySelectorAll('.slider__dots div')
+        const dots:any = [...dotsNode]
+        const img = document.querySelector<HTMLDivElement>('.slider__img')
+        const index = dots.indexOf(e.target)
+        setCount(index)
+        setMovedBy(img.clientWidth * index * (-1))
+    }
 
     const handleSlider = (move:number):void =>{
         const slider = document.querySelector<HTMLDivElement>('.slider__images')
         slider.style.transform = `translateX(${move}px)`
     }
 
+    const handleDots = () =>{
+        const dots = document.querySelectorAll('.slider__dots div')
+        dots.forEach(dot => dot.classList.remove('active'))
+        dots[count].classList.add('active')
+    }
     
     const handleAnimation = (frame:number):void =>{
         const articles = document.querySelectorAll('.slider__article')
@@ -245,26 +257,32 @@ const Slider:React.FC = ():JSX.Element => {
             tl.fromTo('.slider__article h2',{ x:500,opacity:0 },{ x:0,opacity:1,duration:1 })
                 .fromTo('.slider__article h3',{ y:50,opacity:0 }, { y:0,opacity:1, duration:1 })
                 .fromTo('.slider__article p',{ x:500,opacity:0 }, {x:0,opacity:1, duration:1 })
+                .fromTo('.slider__article button',{ y:500,opacity:0 }, {y:0,opacity:1, duration:1 })
         }
         if(frame === 1){
             tl.fromTo('.slider__article h2',{ y:500,opacity:0 },{ y:0,opacity:1,duration:1 })
                 .fromTo('.slider__article h3',{ x:50,opacity:0 }, {x:0,opacity:1, duration:1 })
                 .fromTo('.slider__article p',{ y:500,opacity:0 }, {y:0,opacity:1, duration:1 })
+                .fromTo('.slider__article button',{ x:500,opacity:0 }, {x:0,opacity:1, duration:1 })
         }
         if(frame === 2){
             tl.fromTo('.slider__article h2',{ x:-500,opacity:0 },{ x:0,opacity:1,duration:1 })
                 .fromTo('.slider__article h3',{ x:50,opacity:0 }, {x:0,opacity:1, duration:1 })
                 .fromTo('.slider__article p',{ y:500,opacity:0 }, {y:0,opacity:1, duration:1 })
+                .fromTo('.slider__article button',{x:-500,opacity:0 }, {x:0,opacity:1, duration:1 })
         }
     }
     const renderArticles = () =>{
-        return currentSlides.map(node => {
-            const { title , subtitle, text } = node.articles[count].node 
+        return currentSlides.map((node:SlideNode) => {
+            const { title , subtitle, text } = node.articles[count].node
                  return (
                      <div key={title} className="slider__article">
                          <h2>{title}</h2>
                          <h3>{subtitle}</h3>
                          <p>{text}</p>
+                         <Link to="#">
+                            <button><img src="/gitlab-icon.png" />See on Github</button>
+                         </Link>
                      </div>        
                  )
              })
@@ -273,9 +291,9 @@ const Slider:React.FC = ():JSX.Element => {
   
     const renderImages = () =>{
         return currentSlides.map(node => {
-            return node.slides.map(slide => { 
+            return node.slides.map((slide:string,index:number) => { 
                  return (
-                     <div key={slide} className="slider__img">
+                     <div key={index} className="slider__img">
                          <Link to="#">
                             <img src={`/${slide}`} />
                          </Link>
@@ -283,10 +301,17 @@ const Slider:React.FC = ():JSX.Element => {
              )})
          })
     }
-
+    const renderDots = () =>{
+        return currentSlides.map(node => {
+            return node.slides.map((slide) =><div onClick={(e)=>{handleSlideToIndex(e)}}></div>)    
+        })
+    }
     useEffect(()=>{
         if(currentSlides.length === 0){
             setCurrentSlides([slides[0]])
+        }
+        if(currentSlides.length > 0){
+            handleDots()
         }
         handleAnimation(animCount)
         handleSlider(movedBy)
@@ -312,6 +337,9 @@ const Slider:React.FC = ():JSX.Element => {
                         <div className="slider__phone-prev" onClick={(e)=>{handleSliderPrev(e,currentSlides[0].slides.length)}}>
                             <FontAwesomeIcon icon = {faChevronLeft} />
                         </div>
+                    </div>
+                    <div className="slider__dots">
+                        {renderDots()}
                     </div>
                     <div className="slider__images-wrapper">
                         <div className="slider__images">  
