@@ -16,8 +16,8 @@ const IndexPage: React.FC = (): JSX.Element => {
   const [current, setCurrent] = useState<any[]>([]);
   const [isContent, setIsContent] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("");
-  const [move,setMove] = useState<number>(0)
-
+  const [move,setMove] = useState<number>(-20)
+  const [count,setCount] = useState<number>(0)
   const handleService = (): void => {
     gsap.registerPlugin(ScrollTrigger);
     const items = document.querySelectorAll(".item");
@@ -155,11 +155,39 @@ const IndexPage: React.FC = (): JSX.Element => {
       );
   };
 
+  const handleMoveCarousel = () =>{
+    const carousel = document.querySelector<HTMLDivElement>('.home__clients-carousel')
+    carousel.style.transform = `translate(${move}px)`
+  }
+
+  const handleCarousel = () =>{
+    const carousel = document.querySelector<HTMLDivElement>('.home__clients-carousel')
+    carousel.style.transform = `translate(${move}px)`
+    const item = document.querySelector<HTMLDivElement>('.home__clients-item')
+      if(count < 3){
+        setMove(move - (item.clientWidth + 200))
+        setCount(count + 1)
+       
+        carousel.style.transition = 'all 1s ease-in-out'
+      }else {
+        carousel.style.transition = 'none'
+        carousel.style.transform = `translate(${-20}px)`
+        setMove(-20)
+        setCount(0)
+      }
+  }
 
   useEffect(() => {
-    handleService();
-    handleProjects();
-  }, []);
+    if(!isSet){
+      handleService();
+      handleProjects();
+      setIsSet(true)
+    }
+    setTimeout(()=>{
+      handleCarousel()
+    },3000) 
+      handleMoveCarousel()
+  }, [count]);
   return (
     <Layout>
       <Seo title="Home" />
@@ -323,6 +351,7 @@ const IndexPage: React.FC = (): JSX.Element => {
               </div>
             </div>
           </div>
+          <button>Contact Me</button>
         </div>
       </div>
     </Layout>
