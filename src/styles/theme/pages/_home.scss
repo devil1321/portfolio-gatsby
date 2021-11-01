@@ -34,16 +34,35 @@
         left: 50%;
         top: 0px;
         width: calc(100% + 180px);
-        padding: 20px;
+        padding: 0px;
         transform: translateX(-50%);
         background-color: rgba(0, 0, 0, 0.15);
         border-radius: 10px;
-        @include createFlex(row, center, center, wrap);
+        @include createFlex(row, center, flex-start, wrap);
+        transform-origin: center 0;
         a {
-            width: calc(100% / 3);
+            width: calc(100% / 4);
             margin: 10px;
             img {
                 width: 100%;
+            }
+        }
+    }
+    &__service-close {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        span {
+            display: block;
+            width: 30px;
+            border-bottom: 2px solid white;
+            transform-origin: 14px 1px;
+            &:first-of-type {
+                transform: rotate(45deg)
+            }
+            &:last-of-type {
+                transform: rotate(-45deg)
             }
         }
     }

@@ -13,9 +13,10 @@ export interface SlideNode{
 }
 export interface ServiceProps {
     id:string;
+    from:string;
     icon:string;
     number:string;
     title:string;
     text:string;
-    handleService:any
+    handleServiceOpen:any;
 }

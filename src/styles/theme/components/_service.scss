@@ -32,10 +32,4 @@
     &__text {
         padding-left: 10px;
     }
-    &__content {
-        @include createFlex(row, center, center, wrap);
-        img {
-            width: 30%;
-        }
-    }
 }

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Layout from "../components/layout"
 import { data } from '../context/works'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'gatsby-link'
 import Seo from "../components/seo"
 import Hero from '../components/Hero'
@@ -14,19 +15,84 @@ const IndexPage:React.FC = (): JSX.Element => {
   const [isSet,setIsSet] = useState(false)
   const [current,setCurrent] = useState([])
   const [isContent,setIsContent] = useState(false)
-  
-  const handleService = (id:string) =>{
-    let category = data.find(item => item.category === id)
-    setCurrent(category.slides)
-    setIsContent(true)
+  const [category,setCategory] = useState('')
+  const handleService = () =>{
+    gsap.registerPlugin(ScrollTrigger)
+    const tl = gsap.timeline()
+    const q = gsap.timeline({ defaults: { duration: 2 } })
+    const items = document.querySelectorAll('.item')
+    tl.fromTo('.service.left', 
+    {x: -800},
+    {x:0,
+      stagger:0.2,
+      scrollTrigger: {
+        trigger: '.service',
+        markers: true,
+        start: "-500px",
+        end: "-400px",
+        scrub:6
+    }}),
     
-    let tl = gsap.timeline()
+    tl.fromTo('.service.right', 
+      {x: 800},
+      {x:0,
+        stagger:0.2,
+        scrollTrigger: {
+          trigger: '.service',
+          markers: true,
+          start: "-500px",
+          end: "-400px",
+          scrub: 6
+      }}, 
+   )
   }
 
-  const handleClose = (e:any) =>{
-    setIsContent(false)
+  const handleServiceOpen = (id:string) =>{
+    let category = data.find(item => item.category === id)
+    setCategory(id)
+    var height:number;
+    
+      if(id === "UX/UI" || id === "E-commerce")
+        height = 150
+      else if(id === "Websites"){
+        height = 470
+      }
+      else if (id === "Applications"){
+        height = 310
+      }
+   
+    
+    setCurrent(category.slides)
+    setTimeout(()=>{
+      setIsContent(true)
+    },500)
+    
+    let tl = gsap.timeline()
+    tl.fromTo('.home__service-content',{width:"0px",height:"10px"},{width:"100%",height:"10px",duration:1})
+      .fromTo('.home__service-content',{height:"2px",padding:"0px"},{height:`${height}px`,padding:"20px",duration:1,delay:0.4})
   }
-  useEffect(()=>{},[current])
+
+  const handleServiceClose = () =>{
+    var height:number;
+    if(category === "UX/UI" || category === "E-commerce")
+      height = 150
+    else if(category === "Websites"){
+      height = 470
+    }
+    else if (category === "Applications"){
+      height = 310
+    }
+    let tl = gsap.timeline()
+    tl.fromTo('.home__service-content',{height:`${height}`,padding:"20px"},{height:`10px`,padding:"0px",duration:1})
+      .fromTo('.home__service-content',{width:"100%",height:"10px"},{width:"0px",height:"0px",duration:1})
+
+      setTimeout(()=>{
+        setIsContent(false)
+      },2400)
+  }
+  useEffect(()=>{
+    handleService()
+  },[])
       return(
       <Layout>
           <Seo title="Home" />
@@ -41,14 +107,14 @@ const IndexPage:React.FC = (): JSX.Element => {
               <h3>As a proffessional, I can provide a wide range of services to make sure you have</h3>
               <h2>everything under control</h2>
               <div className="home__service-wrapper">
-                <Service handleService = {handleService} id={'UX/UI'} icon={"/icon-1.png"} number="01" title="UX/UI" text="Through research to prepare the best solutions"  />
-                <Service handleService = {handleService} id={'Websites'} icon={"/icon-2.png"} number="02" title="Web Design" text="Full responsive equipped with modern technology"  />
-                <Service handleService = {handleService} id={'Applications'} icon={"/icon-3.png"} number="03" title="Applications" text="Idinvidualy planned solutions to provide best answers to your problems and needs" />
-                <Service handleService = {handleService} id={'E-commerce'} icon={"/icon-4.png"} number="04" title="E-commerce" text="Best UX/UI design for your E-commerce" />
+                <Service handleServiceOpen = {handleServiceOpen} id={'UX/UI'} from="left" icon={"/icon-1.png"} number="01" title="UX/UI" text="Through research to prepare the best solutions"  />
+                <Service handleServiceOpen = {handleServiceOpen} id={'Websites'} from="right" icon={"/icon-2.png"} number="02" title="Web Design" text="Full responsive equipped with modern technology"  />
+                <Service handleServiceOpen = {handleServiceOpen} id={'Applications'} from="left" icon={"/icon-3.png"} number="03" title="Applications" text="Idinvidualy planned solutions to provide best answers to your problems and needs" />
+                <Service handleServiceOpen = {handleServiceOpen} id={'E-commerce'} from="right" icon={"/icon-4.png"} number="04" title="E-commerce" text="Best UX/UI design for your E-commerce" />
             </div>
               {isContent && 
               <div className="home__service-content">
-                <div className="home__service-close" onClick={(e)=>{handleClose(e)}}>
+                <div className="home__service-close" onClick={()=>{handleServiceClose()}}>
                   <span></span>
                   <span></span>
                 </div>
