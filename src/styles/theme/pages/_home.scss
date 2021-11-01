@@ -91,4 +91,71 @@
         top: -450px;
         right: -180px;
     }
+    &__technology {
+        margin-top: -300px;
+        h2 {
+            width: 40%;
+            margin: 0px auto 30px;
+        }
+        p {
+            width: 45%;
+            margin: 10px auto;
+        }
+    }
+    &__technology-group {
+        width: 100%;
+        margin-top: 80px;
+        @include createFlex(row, center, center, null);
+    }
+    &__technology-icon {
+        margin: 0px 10px;
+        overflow: hidden;
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        img {
+            width: 100%;
+        }
+    }
+    &__clients {
+        margin-top: 100px;
+        img {
+            display: block;
+            margin: 50px auto;
+        }
+    }
+    &__clients-carousel-wrapper {
+        overflow: hidden;
+        width: 50%;
+        margin: 0px auto;
+        padding: 30px;
+        height: 300px;
+        border: 2px solid white;
+        border-radius: 25px;
+        @include createFlex(row, flex-start, center, null);
+    }
+    &__clients-carousel {
+        @include createFlex(row, flex-start, center, null);
+        transform: translateX(-20px);
+    }
+    &__clients-item {
+        height: 250px;
+        min-width: 35%;
+        margin: 0px 100px;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        @include createFlex(row, center, center, null);
+        img:first-of-type {
+            position: absolute;
+            left: -75px;
+            top: -25px;
+        }
+        img:last-of-type {
+            position: absolute;
+            right: -60px;
+            bottom: -10px;
+        }
+    }
 }
