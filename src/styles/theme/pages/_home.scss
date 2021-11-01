@@ -66,4 +66,29 @@
             }
         }
     }
+    &__projects {
+        h2 {
+            margin: 100px 0px;
+        }
+    }
+    &__projects-image-1,
+    &__projects-image-2,
+    &__projects-image-3 {
+        width: 65%;
+    }
+    &__projects-image-1 {
+        position: relative;
+        top: 0px;
+        left: -40px;
+    }
+    &__projects-image-2 {
+        position: relative;
+        top: -250px;
+        right: -440px;
+    }
+    &__projects-image-3 {
+        position: relative;
+        top: -450px;
+        right: -180px;
+    }
 }

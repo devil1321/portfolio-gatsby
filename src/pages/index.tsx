@@ -16,18 +16,17 @@ const IndexPage:React.FC = (): JSX.Element => {
   const [current,setCurrent] = useState([])
   const [isContent,setIsContent] = useState(false)
   const [category,setCategory] = useState('')
-  const handleService = () =>{
+
+  const handleService = ():void =>{
     gsap.registerPlugin(ScrollTrigger)
-    const tl = gsap.timeline()
-    const q = gsap.timeline({ defaults: { duration: 2 } })
     const items = document.querySelectorAll('.item')
+    const tl = gsap.timeline()
     tl.fromTo('.service.left', 
     {x: -800},
     {x:0,
       stagger:0.2,
       scrollTrigger: {
         trigger: '.service',
-        markers: true,
         start: "-500px",
         end: "-400px",
         scrub:6
@@ -39,7 +38,6 @@ const IndexPage:React.FC = (): JSX.Element => {
         stagger:0.2,
         scrollTrigger: {
           trigger: '.service',
-          markers: true,
           start: "-500px",
           end: "-400px",
           scrub: 6
@@ -47,7 +45,7 @@ const IndexPage:React.FC = (): JSX.Element => {
    )
   }
 
-  const handleServiceOpen = (id:string) =>{
+  const handleServiceOpen = (id:string):void =>{
     let category = data.find(item => item.category === id)
     setCategory(id)
     var height:number;
@@ -72,7 +70,7 @@ const IndexPage:React.FC = (): JSX.Element => {
       .fromTo('.home__service-content',{height:"2px",padding:"0px"},{height:`${height}px`,padding:"20px",duration:1,delay:0.4})
   }
 
-  const handleServiceClose = () =>{
+  const handleServiceClose = ():void =>{
     var height:number;
     if(category === "UX/UI" || category === "E-commerce")
       height = 150
@@ -90,8 +88,44 @@ const IndexPage:React.FC = (): JSX.Element => {
         setIsContent(false)
       },2400)
   }
+
+  const handleProjects = () =>{
+    const tl = gsap.timeline()
+    tl.fromTo('.home__projects-image-1', 
+    {x: -800,opacity:0},
+    {x:0,opacity:1,
+      stagger:0.2,
+      scrollTrigger: {
+        trigger: '#projects',
+        start: "-300px",
+        end: "-200px",
+        scrub:6
+    }}),
+    tl.fromTo('.home__projects-image-2', 
+    {x: 800,opacity:0},
+    {x:0,opacity:1,
+      stagger:0.2,
+      scrollTrigger: {
+        trigger: '#projects',
+        start: "-300px",
+        end: "-200px",
+        scrub:6
+    }}),
+    tl.fromTo('.home__projects-image-3', 
+    {y: 800,opacity:0},
+    {y:0,opacity:1,
+      stagger:0.2,
+      scrollTrigger: {
+        trigger: '#projects',
+        start: "-300px",
+        end: "-200px",
+        scrub:6
+    }})
+  }
+
   useEffect(()=>{
     handleService()
+    handleProjects()
   },[])
       return(
       <Layout>
@@ -120,6 +154,12 @@ const IndexPage:React.FC = (): JSX.Element => {
                 </div>
                   {current.map(slide => <Link to="#"><img src={`${slide}`} /></Link>)}
               </div>}
+            </div>
+            <div className="home__projects" id="projects">
+              <h2>Projects</h2>
+              <img className="home__projects-image-1" src="/e-commerce/sale-hub.png" alt="" />
+              <img className="home__projects-image-2" src="/applications/wheather-app.png" alt="" />
+              <img className="home__projects-image-3" src="/websites/free-landing-page.png" alt="" />
             </div>
           </div>
       </Layout>
