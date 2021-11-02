@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-/*-----------------COMPONENTS---------------------*/
-import Layout from "../components/layout";
+import axios from 'axios'
 import { data } from "../context/works";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+/*-----------------COMPONENTS---------------------*/
 import Link from "gatsby-link";
+import Layout from "../components/layout";
 import Seo from "../components/seo";
 import Hero from "../components/Hero";
 import Slider from "../components/Slider";
@@ -15,9 +16,16 @@ const IndexPage: React.FC = (): JSX.Element => {
   const [isSet, setIsSet] = useState<boolean>(false);
   const [current, setCurrent] = useState<any[]>([]);
   const [isContent, setIsContent] = useState<boolean>(false);
+  const [isForm,setIsForm] = useState<boolean>(false)
+  const [isError,setIsError] = useState<boolean>(false)
   const [category, setCategory] = useState<string>("");
   const [move,setMove] = useState<number>(-20)
   const [count,setCount] = useState<number>(0)
+  const [formData,setFormData] = useState({
+    name:'',
+    email:'',
+    message:''
+  })
   const handleService = (): void => {
     gsap.registerPlugin(ScrollTrigger);
     const items = document.querySelectorAll(".item");
@@ -65,9 +73,7 @@ const IndexPage: React.FC = (): JSX.Element => {
     }
 
     setCurrent(category.slides);
-    setTimeout(() => {
-      setIsContent(true);
-    }, 500);
+  
 
     let tl = gsap.timeline();
     tl.fromTo(
@@ -177,7 +183,51 @@ const IndexPage: React.FC = (): JSX.Element => {
       }
   }
 
+  const handleFormLine = (e:any) =>{
+    const fields = document.querySelectorAll('.home__field')
+    fields.forEach(field => field.classList.remove('active'))
+    e.target.parentElement.classList.add('active')
+  }
+
+  const handleChange = (e) =>{
+    setFormData(prevState => ({
+      ...prevState,
+      [e.target.name]:e.target.value
+    }))
+  }
+
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  } 
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    const email = validateEmail(formData.email)
+    if(email){
+      axios.post('https://portfolionodemailer.herokuapp.com/send-mail',formData)
+        .then(res => {console.log(res)})
+    }else{
+      setIsError(true)
+      setTimeout(()=>{
+        setIsError(false)
+      },2000)
+    }
+  }
+
+  const handleFormAppears = () =>{
+    const tl = gsap.timeline()
+    tl.to('.home__form',{width:'60%',border:'2px solid white',duration:1})
+      .to('.home__form',{height:'650px',duration:1})
+  }
+  const handleFormDisappears = () =>{
+    const tl = gsap.timeline()
+    tl.to('.home__form',{height:'0px',border:'2px solid white',duration:1})
+      .to('.home__form',{width:'0px',duration:1})
+      .to('.home__form',{border:'0px'})
+  }
+
   useEffect(() => {
+    console.log(formData)
     if(!isSet){
       handleService();
       handleProjects();
@@ -245,7 +295,7 @@ const IndexPage: React.FC = (): JSX.Element => {
               text="Best UX/UI design for your E-commerce"
             />
           </div>
-          {isContent && (
+         
             <div className="home__service-content">
               <div
                 className="home__service-close"
@@ -262,7 +312,7 @@ const IndexPage: React.FC = (): JSX.Element => {
                 </Link>
               ))}
             </div>
-          )}
+         
         </div>
         <div className="home__projects" id="projects">
           <h2>Projects</h2>
@@ -351,7 +401,34 @@ const IndexPage: React.FC = (): JSX.Element => {
               </div>
             </div>
           </div>
-          <button>Contact Me</button>
+          <button onClick={()=>{handleFormAppears()}} className="home__contact-btn">Contact Me</button>
+         
+            <form className="home__form" method="POST" onSubmit={(e)=>{handleSubmit(e)}} encType={"multipart/form-data"}>
+              <div
+                className="home__form-close"
+                onClick={() => {
+                  handleFormDisappears();
+                }}
+              >
+                <span></span>
+                <span></span>
+              </div>
+              <h3>Contact With Me</h3>
+              {isError && <div className="home__error">Enter Valid Email</div>}
+              <div className="home__field">
+                <label htmlFor="">Name:</label>
+                <input onChange={(e)=>{handleChange(e)}} onFocus={(e)=>{handleFormLine(e)}} type="text" name="name" value={formData.name} />
+              </div>
+              <div  className="home__field">
+                <label htmlFor="">Email:</label>
+                <input onChange={(e)=>{handleChange(e)}} onFocus={(e)=>{handleFormLine(e)}} type="text" name="email" value={formData.email} />
+              </div>
+              <div  className="home__field">
+                <label htmlFor="">Message:</label>
+              <textarea onChange={(e)=>{handleChange(e)}} onFocus={(e)=>{handleFormLine(e)}} name="message" value={formData.message} id="" cols={30} rows={10}></textarea>
+              </div>
+              <button className="home__submit-btn" type="submit">Send</button>
+            </form>
         </div>
       </div>
     </Layout>

@@ -128,17 +128,6 @@
             display: block;
             margin: 50px auto;
         }
-        button {
-            font-family: $roboto-font;
-            position: absolute;
-            right: 100px;
-            bottom: 0px;
-            padding: 15px 50px;
-            color: white;
-            border: 2px solid white;
-            border-radius: 25px;
-            background: transparent;
-        }
     }
     &__clients-carousel-wrapper {
         overflow: hidden;
@@ -172,6 +161,116 @@
             position: absolute;
             right: -60px;
             bottom: -10px;
+        }
+    }
+    &__contact-btn {
+        cursor: pointer;
+        font-family: $roboto-font;
+        position: absolute;
+        right: 100px;
+        bottom: 0px;
+        padding: 15px 50px;
+        color: white;
+        border: 2px solid white;
+        border-radius: 25px;
+        background: transparent;
+    }
+    &__form {
+        width: 0%;
+        height: 0px;
+        margin: 50px auto;
+        border: 0px;
+        border-radius: 25px;
+        transform-origin: center 0;
+        overflow: hidden;
+        @include createFlex(column, center, center, null);
+        h3 {
+            margin: 30px 0px;
+        }
+    }
+    &__form-close {
+        cursor: pointer;
+        position: relative;
+        right: -40%;
+        top: 0px;
+        span {
+            display: block;
+            width: 30px;
+            border: 2px solid white;
+            transform-origin: 15px 2px;
+            &:first-of-type {
+                transform: rotate(45deg)
+            }
+            &:last-of-type {
+                transform: rotate(-45deg)
+            }
+        }
+    }
+    &__error {
+        margin: 20px 0px;
+        font-family: $roboto-font;
+        width: 80%;
+        color: red;
+        border-bottom: 2px solid red;
+    }
+    &__field {
+        margin: 10px 0px;
+        width: 80%;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        border-bottom: 1px solid white;
+        &:hover {
+            border-bottom: 1px solid blue;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -1px;
+            width: 0%;
+            transform-origin: center;
+            transition: all 0.5s ease-in-out;
+            border-bottom: 2px solid greenyellow;
+            transform: translateX(-50%)
+        }
+        &.active {
+            &:before {
+                width: 100%;
+            }
+        }
+        label {
+            font-family: $roboto-font;
+            color: white;
+        }
+        input,
+        textarea {
+            margin-top: 5px;
+            font-family: $roboto-font;
+            min-height: 30px;
+            width: 100%;
+            background: transparent;
+            color: white;
+            border: 0px;
+            &:active,
+            &:focus {
+                outline: none;
+                border: 0px;
+            }
+        }
+    }
+    &__submit-btn {
+        cursor: pointer;
+        margin-top: 20px;
+        font-family: $roboto-font;
+        padding: 15px 50px;
+        width: 80%;
+        color: white;
+        border: 2px solid white;
+        background: transparent;
+        &:hover {
+            border: 2px solid greenyellow;
+            background-color: rgba(255, 255, 255, 0.1);
         }
     }
 }
