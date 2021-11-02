@@ -40,6 +40,7 @@ const IndexPage: React.FC = (): JSX.Element => {
       {
         x: 0,
         stagger: 0.2,
+        force3D:true,
         scrollTrigger: {
           trigger: ".service",
           start: "-500px",
@@ -54,6 +55,7 @@ const IndexPage: React.FC = (): JSX.Element => {
         {
           x: 0,
           stagger: 0.2,
+          force3D:true,
           scrollTrigger: {
             trigger: ".service",
             start: "-500px",
@@ -82,12 +84,12 @@ const IndexPage: React.FC = (): JSX.Element => {
     let tl = gsap.timeline();
     tl.fromTo(
       ".home__service-content",
-      { width: "0px", height: "10px" },
-      { width: "100%", height: "10px", duration: 1 }
+      { width: "0px", height: "10px", force3D:true },
+      { width: "100%", height: "10px", force3D:true, duration: 1 }
     ).fromTo(
       ".home__service-content",
-      { height: "2px", padding: "0px" },
-      { height: `${height}px`, padding: "20px", duration: 1, delay: 0.4 }
+      { height: "2px", padding: "0px" ,force3D:true },
+      { height: `${height}px`, padding: "20px", force3D:true, duration: 1, delay: 0.4 }
     );
   };
 
@@ -102,12 +104,12 @@ const IndexPage: React.FC = (): JSX.Element => {
     let tl = gsap.timeline();
     tl.fromTo(
       ".home__service-content",
-      { height: `${height}`, padding: "20px" },
-      { height: `10px`, padding: "0px", duration: 1 }
+      { height: `${height}`, padding: "20px", force3D:true },
+      { height: `10px`, padding: "0px", force3D:true, duration: 1 }
     ).fromTo(
       ".home__service-content",
-      { width: "100%", height: "10px" },
-      { width: "0px", height: "0px", duration: 1 }
+      { width: "100%", height: "10px", force3D:true },
+      { width: "0px", height: "0px", force3D:true, duration: 1 }
     );
 
     setTimeout(() => {
@@ -125,6 +127,7 @@ const IndexPage: React.FC = (): JSX.Element => {
         x: 0,
         opacity: 1,
         stagger: 0.2,
+        force3D:true,
         scrollTrigger: {
           trigger: "#projects",
           start: "-300px",
@@ -139,6 +142,7 @@ const IndexPage: React.FC = (): JSX.Element => {
         {
           x: 0,
           opacity: 1,
+          force3D:true,
           stagger: 0.2,
           scrollTrigger: {
             trigger: "#projects",
@@ -155,6 +159,7 @@ const IndexPage: React.FC = (): JSX.Element => {
           y: 0,
           opacity: 1,
           stagger: 0.2,
+          force3D:true,
           scrollTrigger: {
             trigger: "#projects",
             start: "-300px",
@@ -172,10 +177,15 @@ const IndexPage: React.FC = (): JSX.Element => {
 
   const handleCarousel = () =>{
     const carousel = document.querySelector<HTMLDivElement>('.home__clients-carousel')
-    carousel.style.transform = `translate(${move}px)`
     const item = document.querySelector<HTMLDivElement>('.home__clients-item')
+      let margin: number
+      if(window.innerWidth < 767){
+        margin = 100
+      }else{
+        margin = 200
+      }
       if(count < 3){
-        setMove(move - (item.clientWidth + 200))
+        setMove(move - (item.clientWidth + margin))
         setCount(count + 1)
        
         carousel.style.transition = 'all 1s ease-in-out'
@@ -220,14 +230,14 @@ const IndexPage: React.FC = (): JSX.Element => {
 
   const handleFormAppears = () =>{
     const tl = gsap.timeline()
-    tl.to('.home__form',{width:'60%',border:'2px solid white',duration:1})
-      .to('.home__form',{height:'650px',duration:1})
+    tl.to('.home__form',{width:'60%',border:'2px solid white', force3D:true,duration:1})
+      .to('.home__form',{height:'650px', force3D:true,duration:1})
   }
   const handleFormDisappears = () =>{
     const tl = gsap.timeline()
-    tl.to('.home__form',{height:'0px',border:'2px solid white',duration:1})
-      .to('.home__form',{width:'0px',duration:1})
-      .to('.home__form',{border:'0px'})
+    tl.to('.home__form',{height:'0px',border:'2px solid white', force3D:true,duration:1})
+      .to('.home__form',{width:'0px', force3D:true,duration:1})
+      .to('.home__form',{border:'0px',force3D:true})
   }
 
   useEffect(() => {
@@ -380,7 +390,7 @@ const IndexPage: React.FC = (): JSX.Element => {
         <div className="home__clients" id="clients">
           <h3>Clients</h3>
           <h2>experience</h2>
-          <img src="/madison-sc-logo.png" alt="" />
+          <img className="logo" src="/madison-sc-logo.png" alt="" />
           <div className="home__clients-carousel-wrapper">
             <div className="home__clients-carousel">
               <div className="home__clients-item">

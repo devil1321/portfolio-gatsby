@@ -1,6 +1,12 @@
 .hero {
     width: 100vw;
     height: 100vh;
+    @include breakpoint-down(medium) {
+        height: 50vh;
+    }
+    @include breakpoint-down(small) {
+        height: 100vh;
+    }
     &__background {
         position: absolute;
         top: 0px;
@@ -13,6 +19,12 @@
             margin: 0px auto;
             width: 90%;
             animation: anim-bg 40s ease infinite;
+            @include breakpoint-down(medium) {
+                animation: none;
+            }
+            @include breakpoint-down(small) {
+                width: 200%;
+            }
             @keyframes anim-bg {
                 0% {
                     transform: scale(1)

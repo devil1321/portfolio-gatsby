@@ -24,11 +24,23 @@ a {
 h3 {
     font-size: pxToRem(20);
     text-align: center;
+    @include breakpoint-down(medium-sm) {
+        width: 70% !important;
+    }
+    @include breakpoint-down(small) {
+        width: 100% !important;
+    }
 }
 
 h2 {
     font-size: pxToRem(70);
     text-align: center;
+    @include breakpoint-down(medium-sm) {
+        font-size: pxToRem(40);
+    }
+    @include breakpoint-down(medium-sm) {
+        width: 100% !important;
+    }
 }
 
 .main-wrapper {
@@ -38,4 +50,8 @@ h2 {
     padding: 50px;
     background-image: url('/background.png');
     background-size: cover;
+    @include breakpoint-down(medium) {
+        width: 100vw;
+        overflow-x: hidden;
+    }
 }
