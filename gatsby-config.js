@@ -60,6 +60,7 @@ module.exports = {
                 }
             }
         },
-        `gatsby-plugin-fontawesome-css`
+        `gatsby-plugin-fontawesome-css`\
+        `gatsby-plugin-netlify`
     ],
 };
