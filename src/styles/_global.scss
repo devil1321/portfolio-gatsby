@@ -32,10 +32,10 @@ h2 {
 }
 
 .main-wrapper {
-    height: 2000vh;
     position: relative;
     top: -27px;
     left: 0px;
     padding: 50px;
     background-image: url('/background.png');
+    background-size: cover;
 }

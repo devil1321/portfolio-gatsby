@@ -53,10 +53,10 @@ const handleNav = ():void =>{
                     <Link to="#portfolio" >Portfolio</Link>
                 </li>
                 <li className="nav__item">
-                    <Link to="#service" >Service</Link>
+                    <Link to="#services" >Service</Link>
                 </li>
                 <li className="nav__item">
-                    <Link to="#awards" >Awards</Link>
+                    <Link to="#clients" >Awards</Link>
                 </li>
                 <li className="nav__item">
                     <Link to="#technology" >Technology</Link>

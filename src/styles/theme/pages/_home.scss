@@ -273,4 +273,54 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
     }
+    &__footer {
+        padding: 100px;
+        @include createFlex(row, space-between, flex-start, null);
+    }
+    &__col {
+        h3 {
+            text-align: left !important;
+        }
+        h2 {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            width: 38%;
+            font-size: pxToRem(40);
+            @include createFlex(row, space-between, center, null);
+        }
+        ul {
+            margin: 0px 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+        li {
+            margin: 10px 0px;
+            &:hover {
+                list-style-type: disc;
+            }
+        }
+        i {
+            color: white;
+            margin: 0px 5px;
+        }
+    }
+    &__dot-top,
+    &__dot-bottom {
+        height: 8px;
+        width: 8px;
+        background-color: white;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    &__dot-top {
+        position: absolute;
+        top: 9px;
+        left: -10px;
+    }
+    &__dot-bottom {
+        position: absolute;
+        bottom: 10px;
+        right: 27px;
+    }
 }

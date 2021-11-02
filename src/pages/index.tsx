@@ -4,6 +4,10 @@ import axios from 'axios'
 import { data } from "../context/works";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 /*-----------------COMPONENTS---------------------*/
 import Link from "gatsby-link";
 import Layout from "../components/layout";
@@ -401,7 +405,7 @@ const IndexPage: React.FC = (): JSX.Element => {
               </div>
             </div>
           </div>
-          <button onClick={()=>{handleFormAppears()}} className="home__contact-btn">Contact Me</button>
+          <button id="contact" onClick={()=>{handleFormAppears()}} className="home__contact-btn">Contact Me</button>
          
             <form className="home__form" method="POST" onSubmit={(e)=>{handleSubmit(e)}} encType={"multipart/form-data"}>
               <div
@@ -429,6 +433,34 @@ const IndexPage: React.FC = (): JSX.Element => {
               </div>
               <button className="home__submit-btn" type="submit">Send</button>
             </form>
+        </div>
+        <div className="home__footer">
+          <div className="home__col">
+            <h2><div className="home__dot-top"></div>D <div className="home__dot-bottom"></div>S</h2>
+            <h3>Dominik Stępień</h3>
+            <h3>All rights reserved</h3>
+          </div>
+          <div className="home__col">
+            <ul>
+              <li><Link to="#portfolio">Portfolio</Link></li>
+              <li><Link to="#services">Service</Link></li>
+              <li><Link to="#clients">Awards</Link></li>
+              <li><Link to="#technology">Technlogy</Link></li>
+            </ul>
+          </div>
+          <div className="home__col">
+            <ul>
+              <li><Link to="#contact">Contact Me</Link></li>
+              <li><Link to="#">Privacy</Link></li>
+              <li><Link to="#">Terms & Conditions</Link></li>
+            </ul>
+          </div>
+          <div className="home__col">
+             <i className="fa fa-facebook-square fa-3x"></i>
+             <i className="fa fa-instagram fa-3x"></i>
+             <i className="fa fa-linkedin-square fa-3x"></i>
+             <i className="fa fa-pinterest fa-3x"></i>
+          </div>
         </div>
       </div>
     </Layout>

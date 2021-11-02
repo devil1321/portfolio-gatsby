@@ -8,7 +8,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import '../styles/theme/theme.scss'
-
+import 'font-awesome/css/font-awesome.min.css';
 const Layout:React.FC = ({ children }):JSX.Element => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {

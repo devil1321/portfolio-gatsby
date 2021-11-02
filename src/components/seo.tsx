@@ -35,6 +35,7 @@ function Seo({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      
       meta={[
         {
           name: `description`,
@@ -69,7 +70,7 @@ function Seo({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+      /> 
   )
 }
 
