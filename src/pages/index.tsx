@@ -22,6 +22,7 @@ const IndexPage: React.FC = (): JSX.Element => {
   const [isContent, setIsContent] = useState<boolean>(false);
   const [isForm,setIsForm] = useState<boolean>(false)
   const [isError,setIsError] = useState<boolean>(false)
+  const [isSend,setIsSend] = useState<boolean>(false)
   const [category, setCategory] = useState<string>("");
   const [move,setMove] = useState<number>(-20)
   const [count,setCount] = useState<number>(0)
@@ -227,9 +228,11 @@ const IndexPage: React.FC = (): JSX.Element => {
     e.preventDefault()
     const email = validateEmail(formData.email)
 
-    if(email){
-      axios.post('http://portfolionodemailer.herokuapp.com/send-mail',formData)
-        .then(res => {console.log(res)})
+    if(email){  
+      axios.post('https://portfolionodemailer.herokuapp.com/send-mail',formData)
+      // axios.post('http://localhost:8080/send-mail',formData)
+        .then(res => {console.log('res',res)})
+        .catch(err => {console.log(err)})
     }else{
       setIsError(true)
       setTimeout(()=>{
@@ -439,6 +442,7 @@ const IndexPage: React.FC = (): JSX.Element => {
               </div>
               <h3>Contact With Me</h3>
               {isError && <div className="home__error">Enter Valid Email</div>}
+              {isSend && <div className="home__send">Message Sended</div>}
               <div className="home__field">
                 <label htmlFor="">Name:</label>
                 <input onChange={(e)=>{handleChange(e)}} onFocus={(e)=>{handleFormLine(e)}} type="text" name="name" value={formData.name} />
