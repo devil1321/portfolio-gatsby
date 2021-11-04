@@ -106,6 +106,7 @@
         left: -40px;
         @include breakpoint-down(small) {
             top: 0%;
+            left: -20px;
         }
     }
     &__projects-image-2 {
