@@ -53,6 +53,9 @@
             @include breakpoint-down-l(medium) {
                 height: 70vh;
             }
+            @include breakpoint-down-l(medium) {
+                height: 85vh;
+            }
             @include breakpoint-down(small) {
                 width: 300px;
                 height: 50vh;
@@ -86,6 +89,10 @@
             @include breakpoint-down(small) {
                 left: 13%;
                 top: 95%;
+            }
+            @include breakpoint-down-l(medium) {
+                left: 17%;
+                top: 72%;
             }
             div {
                 cursor: pointer;
@@ -232,6 +239,9 @@
             height: 65vh;
             @include breakpoint-down(medium) {
                 height: 40vh;
+            }
+            @include breakpoint-down-l(medium) {
+                height: 100%;
             }
             @include breakpoint-down(small) {
                 margin-top: 20px;

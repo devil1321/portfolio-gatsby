@@ -116,6 +116,9 @@
             top: -2%;
             right: -10%;
         }
+        @include breakpoint-down-l(medium) {
+            right: -45%;
+        }
     }
     &__projects-image-3 {
         position: relative;
@@ -124,6 +127,9 @@
         @include breakpoint-down(small) {
             top: -28%;
             right: -120px;
+        }
+        @include breakpoint-down-l(medium) {
+            top: -350px;
         }
     }
     &__technology {
@@ -198,6 +204,9 @@
         @include breakpoint-down(small) {
             min-width: 80%;
         }
+        @include breakpoint-down-l(medium) {
+            min-width: 90%;
+        }
     }
     &__clients-carousel {
         @include createFlex(row, flex-start, center, null);
@@ -217,6 +226,9 @@
             max-width: 250px;
             margin: 0px 50px;
             transform: translateX(-30px)
+        }
+        @include breakpoint-down-l(medium) {
+            transform: translateX(20px)
         }
         img:first-of-type {
             position: absolute;

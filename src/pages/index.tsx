@@ -179,7 +179,7 @@ const IndexPage: React.FC = (): JSX.Element => {
     const carousel = document.querySelector<HTMLDivElement>('.home__clients-carousel')
     const item = document.querySelector<HTMLDivElement>('.home__clients-item')
       let margin: number
-      if(window.innerWidth < 767){
+      if(window.innerWidth < 736){
         margin = 100
       }else{
         margin = 200
