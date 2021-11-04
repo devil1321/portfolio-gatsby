@@ -106,7 +106,7 @@
         left: -40px;
         @include breakpoint-down(small) {
             top: 0%;
-            left: -20px;
+            left: -5px;
         }
     }
     &__projects-image-2 {
@@ -204,6 +204,7 @@
         }
         @include breakpoint-down(small) {
             min-width: 80%;
+            height: 200px;
         }
         @include breakpoint-down-l(medium) {
             min-width: 90%;
@@ -226,7 +227,7 @@
             min-width: 250px;
             max-width: 250px;
             margin: 0px 50px;
-            transform: translateX(-30px)
+            transform: translateX(-10px)
         }
         @include breakpoint-down-l(medium) {
             transform: translateX(20px)
