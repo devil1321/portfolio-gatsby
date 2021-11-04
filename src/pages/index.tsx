@@ -238,7 +238,13 @@ const IndexPage: React.FC = (): JSX.Element => {
 
   const handleFormAppears = () =>{
     const tl = gsap.timeline()
-    tl.to('.home__form',{width:'60%',border:'2px solid white', force3D:true,duration:1})
+    let width:number;
+    if(window.innerWidth < 736){
+      width == 95
+    }else{
+      width = 60
+    }
+    tl.to('.home__form',{width:`${width}%`,border:'2px solid white', force3D:true,duration:1})
       .to('.home__form',{height:'650px', force3D:true,duration:1})
   }
   const handleFormDisappears = () =>{

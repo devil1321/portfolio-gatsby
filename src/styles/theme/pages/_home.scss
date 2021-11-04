@@ -264,6 +264,9 @@
         border: 2px solid white;
         border-radius: 25px;
         background: transparent;
+        @include breakpoint-down(small) {
+            bottom: 50px;
+        }
     }
     &__form {
         width: 0%;
