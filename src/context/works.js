@@ -1,6 +1,6 @@
 export const data = [{
         category: 'UX/UI',
-        slides: ['e-commerce/sale-hub.png', 'applications/quiz-app.png', 'applications/todo-app-redux.png'],
+        slides: ['e-commerce/sale-hub.png', 'applications/quiz-app.png', 'websites/portfolio.png', 'applications/todo-app-redux.png'],
         articles: [{
                 node: {
                     title: 'Sale Hub',
@@ -19,6 +19,14 @@ export const data = [{
             },
             {
                 node: {
+                    title: 'Portfolio',
+                    subtitle: 'Gatsby/SCSS',
+                    text: 'Portfolio builded with Gatsby',
+                    github: 'https://github.com/devil1321/portfolio-gatsby'
+                }
+            },
+            {
+                node: {
                     title: 'Todo App Dates',
                     subtitle: 'React/Redux/SCSS',
                     text: 'Simple Todo List with dates and modify feature',
@@ -29,7 +37,7 @@ export const data = [{
     },
     {
         category: 'Websites',
-        slides: ['websites/free-landing-page.png', 'websites/club-in.png', 'websites/easy-bank.png', 'websites/ice-and-cake.png', 'websites/manage-landing-page.png', 'websites/loopstudios.png', 'websites/apps-market.png', 'websites/rooms-homepage.png', ],
+        slides: ['websites/free-landing-page.png', 'websites/portfolio.png', 'websites/club-in.png', 'websites/easy-bank.png', 'websites/ice-and-cake.png', 'websites/manage-landing-page.png', 'websites/loopstudios.png', 'websites/apps-market.png', 'websites/rooms-homepage.png', ],
         articles: [{
                 node: {
                     title: 'Free Landing Page',
@@ -38,6 +46,14 @@ export const data = [{
                     github: 'https://github.com/devil1321/free-landing-page'
                 }
 
+            },
+            {
+                node: {
+                    title: 'Portfolio',
+                    subtitle: 'Gatsby/SCSS',
+                    text: 'Portfolio builded with Gatsby',
+                    github: 'https://github.com/devil1321/portfolio-gatsby'
+                }
             },
             {
                 node: {
