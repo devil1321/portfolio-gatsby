@@ -11,6 +11,9 @@
     }
     &__portfolio {
         padding-top: 100px;
+        @include breakpoint-down(small) {
+            padding-top: 50px;
+        }
         h3 {
             width: 45%;
             margin: 0px auto;
@@ -19,6 +22,9 @@
     &__services {
         position: relative;
         padding-top: 100px;
+        @include breakpoint-down(small) {
+            padding-top: 50px;
+        }
         h3 {
             width: 48%;
             margin: 0px auto;
@@ -28,6 +34,9 @@
         margin-top: 100px;
         width: 100%;
         @include createFlex(row, center, center, wrap);
+        @include breakpoint-down(small) {
+            margin-top: 50px;
+        }
     }
     &__service-content {
         overflow: hidden;
@@ -72,9 +81,12 @@
     &__projects {
         h2 {
             margin: 100px 0px;
+            @include breakpoint-down(small) {
+                margin: 50px 0px;
+            }
         }
         @include breakpoint-down(small) {
-            height: 700px;
+            height: 600px;
         }
     }
     &__projects-image-1,
@@ -87,7 +99,7 @@
         top: 0px;
         left: -40px;
         @include breakpoint-down(small) {
-            top: -10%;
+            top: 0%;
         }
     }
     &__projects-image-2 {
@@ -95,7 +107,7 @@
         top: -250px;
         right: -440px;
         @include breakpoint-down(small) {
-            top: -12%;
+            top: -2%;
             right: -10%;
         }
     }
@@ -104,7 +116,7 @@
         top: -450px;
         right: -180px;
         @include breakpoint-down(small) {
-            top: -40%;
+            top: -28%;
             right: -120px;
         }
     }
@@ -140,6 +152,10 @@
         width: 100px;
         height: 100px;
         background-color: white;
+        @include breakpoint-down(small) {
+            width: 50px;
+            height: 50px;
+        }
         img {
             width: 100%;
         }
@@ -174,7 +190,7 @@
             width: 75%;
         }
         @include breakpoint-down(small) {
-            min-width: 90%;
+            min-width: 80%;
         }
     }
     &__clients-carousel {
@@ -191,9 +207,10 @@
         left: 0px;
         @include createFlex(row, center, center, null);
         @include breakpoint-down(small) {
-            min-width: 300px;
-            max-width: 300px;
+            min-width: 250px;
+            max-width: 250px;
             margin: 0px 50px;
+            transform: translateX(-30px)
         }
         img:first-of-type {
             position: absolute;

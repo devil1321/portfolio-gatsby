@@ -12,6 +12,9 @@
             margin: 0px;
             list-style-type: none;
             @include createFlex(row, space-between, center, null);
+            @include breakpoint-down(small) {
+                @include createFlex(row, space-between, center, wrap);
+            }
         }
         &__item {
             cursor: pointer;
@@ -21,6 +24,8 @@
             border-bottom: 2px solid white;
             opacity: 0.7;
             @include breakpoint-down(small) {
+                margin: 10px;
+                min-width: 40%;
                 font-size: pxToRem(12);
             }
             &:hover,
@@ -46,8 +51,12 @@
                 height: 40vh;
             }
             @include breakpoint-down(small) {
-                width: 100%;
+                width: 300px;
                 height: 50vh;
+                transform: translateX(5%)
+            }
+            @media (max-device-width:320px) {
+                transform: translateX(-5%)
             }
         }
         &__phone-controls {
@@ -62,6 +71,10 @@
             @include breakpoint-down(medium-sm) {
                 left: 20%;
                 top: 72%;
+            }
+            @include breakpoint-down(small) {
+                left: 13%;
+                top: 95%;
             }
             div {
                 cursor: pointer;
@@ -193,6 +206,7 @@
                 height: 40vh;
             }
             @include breakpoint-down(small) {
+                margin-top: 20px;
                 width: 100%;
             }
             @include createFlex(row,
@@ -244,6 +258,9 @@
             }
             @include breakpoint-down(medium) {
                 top: 40%;
+            }
+            @include breakpoint-down(small) {
+                right: 0px;
             }
         }
         &__prev {
