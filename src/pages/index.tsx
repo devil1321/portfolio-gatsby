@@ -239,7 +239,7 @@ const IndexPage: React.FC = (): JSX.Element => {
   const handleFormAppears = () =>{
     const tl = gsap.timeline()
     let width:number;
-    if(window.innerWidth < 736){
+    if(window.innerWidth <= 1024){
       width == 95
     }else{
       width = 60
