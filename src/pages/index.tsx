@@ -223,15 +223,12 @@ const IndexPage: React.FC = (): JSX.Element => {
     return re.test(String(email).toLowerCase());
   } 
   const handleSubmit = (e) =>{
+ 
     e.preventDefault()
     const email = validateEmail(formData.email)
-    let config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
+
     if(email){
-      axios.post('https://portfolionodemailer.herokuapp.com/send-mail',formData,config)
+      axios.post('http://portfolionodemailer.herokuapp.com/send-mail',formData)
         .then(res => {console.log(res)})
     }else{
       setIsError(true)
