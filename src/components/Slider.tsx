@@ -107,13 +107,13 @@ const Slider:React.FC = ():JSX.Element => {
     }
     const renderArticles = () =>{
         return currentSlides.map((node:SlideNode) => {
-            const { title , subtitle, text } = node.articles[count].node
+            const { title , subtitle, text, github } = node.articles[count].node
                  return (
                      <div key={title} className="slider__article">
                          <h2>{title}</h2>
                          <h3>{subtitle}</h3>
                          <p>{text}</p>
-                         <Link to="#">
+                         <Link to={github}>
                             <button><img src="/gitlab-icon.png" />See on Github</button>
                          </Link>
                      </div>        
@@ -124,10 +124,11 @@ const Slider:React.FC = ():JSX.Element => {
   
     const renderImages = () =>{
         return currentSlides.map(node => {
+            const { github } = node.articles[count].node
             return node.slides.map((slide:string,index:number) => { 
                  return (
                      <div key={index} className="slider__img">
-                         <Link to="#">
+                         <Link to={github}>
                             <img src={`/${slide}`} />
                          </Link>
                      </div>

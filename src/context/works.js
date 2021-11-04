@@ -5,21 +5,24 @@ export const data = [{
                 node: {
                     title: 'Sale Hub',
                     subtitle: 'React/Redux/TypeScript/SCSS',
-                    text: 'This is a faithful and refreshed version of themeforest store template'
+                    text: 'This is a faithful and refreshed version of themeforest store template',
+                    github: 'https://github.com/devil1321/sale-hub-e-commerce-redux-typescript'
                 },
             },
             {
                 node: {
                     title: 'Quiz-App',
                     subtitle: 'React/SCSS',
-                    text: 'Simple draggable and checkable quiz app'
+                    text: 'Simple draggable and checkable quiz app',
+                    github: 'https://github.com/devil1321/quiz-app'
                 },
             },
             {
                 node: {
                     title: 'Todo App Dates',
                     subtitle: 'React/Redux/SCSS',
-                    text: 'Simple Todo List with dates and modify feature'
+                    text: 'Simple Todo List with dates and modify feature',
+                    github: 'https://github.com/devil1321/todo-app-redux'
                 }
             }
         ]
@@ -31,7 +34,8 @@ export const data = [{
                 node: {
                     title: 'Free Landing Page',
                     subtitle: 'HTML/CSS/SCSS/JS/SVG/GSAP',
-                    text: 'Free Landing Page site with animated SVG and gsap scroll trigger feature.'
+                    text: 'Free Landing Page site with animated SVG and gsap scroll trigger feature.',
+                    github: 'https://github.com/devil1321/free-landing-page'
                 }
 
             },
@@ -39,7 +43,8 @@ export const data = [{
                 node: {
                     title: 'Club In',
                     subtitle: 'HTML/CSS/SCSS/JS/XD',
-                    text: 'Club In Landing Page with carousels'
+                    text: 'Club In Landing Page with carousels',
+                    github: 'https://github.com/devil1321/club-in-xd'
                 }
 
             },
@@ -47,7 +52,8 @@ export const data = [{
                 node: {
                     title: 'Easy Bank',
                     subtitle: 'HTML/CSS/SCSS/JS',
-                    text: 'Easy Bank landing page from freeCodeCamp'
+                    text: 'Easy Bank landing page from freeCodeCamp',
+                    github: 'https://github.com/devil1321/easybank-landing-page-master'
                 }
 
             },
@@ -55,7 +61,8 @@ export const data = [{
                 node: {
                     title: 'Ice And Cake',
                     subtitle: 'HTML/CSS/SCSS/JS/XD',
-                    text: 'Ice and Cake copy of a page from an Adobe XD template'
+                    text: 'Ice and Cake copy of a page from an Adobe XD template',
+                    github: 'https://github.com/devil1321/ice-cake'
                 }
 
             },
@@ -63,7 +70,8 @@ export const data = [{
                 node: {
                     title: 'Manage Landing Page',
                     subtitle: 'HTML/CSS/SCSS/JS',
-                    text: 'Manage Landing Page from FrontEndMentor'
+                    text: 'Manage Landing Page from FrontEndMentor',
+                    github: 'https://github.com/devil1321/manage-landing-page-master'
                 }
 
             },
@@ -71,7 +79,8 @@ export const data = [{
                 node: {
                     title: 'LoopStudios',
                     subtitle: 'HTML/CSS/SCSS/JS',
-                    text: 'Loop Studios Landing Page from FrontEndMentor'
+                    text: 'Loop Studios Landing Page from FrontEndMentor',
+                    github: 'https://github.com/devil1321/loopstudios-landing-page'
                 }
 
             },
@@ -79,7 +88,8 @@ export const data = [{
                 node: {
                     title: 'Apps Market',
                     subtitle: 'HTML/CSS/SCSS/JS/XD',
-                    text: 'Apps Market Landing Page from Adobbe XD'
+                    text: 'Apps Market Landing Page from Adobbe XD',
+                    github: 'https://github.com/devil1321/technology-landing-page-xd'
                 }
 
             },
@@ -87,7 +97,8 @@ export const data = [{
                 node: {
                     title: 'Room Homepage',
                     subtitle: 'HTML/CSS/SCSS/JS',
-                    text: 'Simple Room Home Page Landing Page'
+                    text: 'Simple Room Home Page Landing Page',
+                    github: 'https://github.com/devil1321/room-homepage-master'
                 }
 
             }
@@ -100,7 +111,8 @@ export const data = [{
                 node: {
                     title: 'Wheather App',
                     subtitle: 'React/Redux/SCSS',
-                    text: 'My Wheather App builded on OpenWheather API'
+                    text: 'My Wheather App builded on OpenWheather API',
+                    github: 'https://github.com/devil1321/wheather-app-redux'
                 }
 
             },
@@ -108,7 +120,8 @@ export const data = [{
                 node: {
                     title: 'Quiz-App',
                     subtitle: 'React/SCSS',
-                    text: 'Simple draggable and checkable quiz app'
+                    text: 'Simple draggable and checkable quiz app',
+                    github: 'https://github.com/devil1321/quiz-app'
                 }
 
             },
@@ -116,7 +129,8 @@ export const data = [{
                 node: {
                     title: 'Todo App Dates',
                     subtitle: 'React/Redux/SCSS',
-                    text: 'My simple todo app with option to modify and describes to do items'
+                    text: 'My simple todo app with option to modify and describes to do items',
+                    github: 'https://github.com/devil1321/todo-app-redux'
                 }
 
             },
@@ -124,7 +138,8 @@ export const data = [{
                 node: {
                     title: 'Todo App Draggable',
                     subtitle: 'React/SCSS',
-                    text: 'Simple Todo List with draggable feature'
+                    text: 'Simple Todo List with draggable feature',
+                    github: 'https://github.com/devil1321/todo-app-main-react-with-draggable'
                 }
 
             },
@@ -132,7 +147,8 @@ export const data = [{
                 node: {
                     title: 'Static Job Listing',
                     subtitle: 'React/SCSS',
-                    text: 'This is simple site with feature filtering jobs by badges'
+                    text: 'This is simple site with feature filtering jobs by badges',
+                    github: 'https://github.com/devil1321/static_job_listings_master_react_v1'
                 }
 
             }
@@ -145,7 +161,8 @@ export const data = [{
                 node: {
                     title: 'Sale Hub',
                     subtitle: 'React/Redux/TypeScript/SCSS',
-                    text: 'This is a faithful and refreshed version of themeforest store template'
+                    text: 'This is a faithful and refreshed version of themeforest store template',
+                    github: 'https://github.com/devil1321/sale-hub-e-commerce-redux-typescript'
                 }
 
             },
@@ -153,7 +170,8 @@ export const data = [{
                 node: {
                     title: 'Easy Shop',
                     subtitle: 'React/SCSS',
-                    text: 'This is a simple shop builded with React'
+                    text: 'This is a simple shop builded with React',
+                    github: 'https://github.com/devil1321/react-smartphone-shop-v2'
                 }
 
             }

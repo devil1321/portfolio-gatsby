@@ -222,11 +222,13 @@
                 margin: 5px 0px !important;
                 text-align: left;
                 width: 100%;
+                opacity: 0;
             }
             p {
                 width: 75%;
             }
             button {
+                opacity: 0;
                 margin-top: 20px;
                 cursor: pointer;
                 border-radius: 5px;
