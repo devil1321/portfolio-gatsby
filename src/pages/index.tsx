@@ -71,7 +71,11 @@ const IndexPage: React.FC = (): JSX.Element => {
     setCategory(id);
     var height: number;
 
-    if (id === "UX/UI" || id === "E-commerce") height = 150;
+    if (id === "UX/UI"){
+      height = 350
+    } else if(id === "E-commerce") {
+      height = 150;
+    }
     else if (id === "Websites") {
       height = 470;
     } else if (id === "Applications") {
@@ -95,7 +99,11 @@ const IndexPage: React.FC = (): JSX.Element => {
 
   const handleServiceClose = (): void => {
     var height: number;
-    if (category === "UX/UI" || category === "E-commerce") height = 150;
+    if (category === "UX/UI") {
+      height = 350;
+    }else if(category === "E-commerce"){
+      height = 350;
+    }
     else if (category === "Websites") {
       height = 470;
     } else if (category === "Applications") {

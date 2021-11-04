@@ -70,7 +70,7 @@
             top: 75%;
             left: 27%;
             z-index: 20;
-            @media(max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+            @media(max-device-width: 1366px) and (min-device-height: 1024px) and (orientation: landscape) {
                 left: 28%;
                 top: 72%;
             }
@@ -176,7 +176,7 @@
             max-width: 230px;
             height: 65vh;
             overflow: hidden;
-            @media(max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+            @media(max-device-width: 1366px) and (min-device-height: 1024px) and (orientation: landscape) {
                 height: 100%;
                 transform: translateY(100px)
             }
@@ -210,7 +210,7 @@
             @include breakpoint-down(small) {
                 transform: translateX(-220px);
             }
-            @media(max-device-width:1366px) and (max-device-height:1024px) and (orientation:landscape) {
+            @media(max-device-width:1366px) and (min-device-height:1024px) and (orientation:landscape) {
                 transform: translateX(-340px);
             }
             @include breakpoint-down-l(medium) {
@@ -221,7 +221,7 @@
                 @include breakpoint-down(medium) {
                     width: 600px;
                 }
-                @media(max-device-width:1366px) and (max-device-height:1024px) and (orientation:landscape) {
+                @media(max-device-width:1366px) and (min-device-height:1024px) and (orientation:landscape) {
                     height: 100%;
                     width: 900px;
                 }
