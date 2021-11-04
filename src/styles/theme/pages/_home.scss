@@ -55,6 +55,9 @@
         @include breakpoint-down(small) {
             display: none;
         }
+        @include breakpoint-down-l(medium) {
+            display: none;
+        }
         a {
             width: calc(100% / 4);
             margin: 10px;

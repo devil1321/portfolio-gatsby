@@ -50,6 +50,9 @@
             @include breakpoint-down(medium) {
                 height: 40vh;
             }
+            @include breakpoint-down-l(medium) {
+                height: 70vh;
+            }
             @include breakpoint-down(small) {
                 width: 300px;
                 height: 50vh;
@@ -64,12 +67,20 @@
             top: 75%;
             left: 27%;
             z-index: 20;
+            @media(max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+                left: 28%;
+                top: 72%;
+            }
             @include breakpoint-down(medium) {
-                left: 25%;
+                left: 28%;
                 top: 72%;
             }
             @include breakpoint-down(medium-sm) {
                 left: 20%;
+                top: 72%;
+            }
+            @include breakpoint-down-l(medium) {
+                left: 24%;
                 top: 72%;
             }
             @include breakpoint-down(small) {
@@ -158,6 +169,10 @@
             max-width: 230px;
             height: 65vh;
             overflow: hidden;
+            @media(max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+                height: 100%;
+                transform: translateY(100px)
+            }
             @include breakpoint-down(medium) {
                 height: 100%;
                 max-width: 42%;
@@ -188,10 +203,23 @@
             @include breakpoint-down(small) {
                 transform: translateX(-220px);
             }
+            @media(max-device-width:1366px) and (max-device-height:1024px) and (orientation:landscape) {
+                transform: translateX(-340px);
+            }
+            @include breakpoint-down-l(medium) {
+                transform: translateX(-250px);
+            }
             img {
                 width: 800px;
                 @include breakpoint-down(medium) {
                     width: 600px;
+                }
+                @media(max-device-width:1366px) and (max-device-height:1024px) and (orientation:landscape) {
+                    height: 100%;
+                    width: 900px;
+                }
+                @include breakpoint-down-l(medium) {
+                    width: 700px;
                 }
             }
         }
