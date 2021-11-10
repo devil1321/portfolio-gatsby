@@ -24,8 +24,7 @@ const handleNav = ():void =>{
             stagger: 0.2
         })
     }else{
-        listNode.style.height = `${0}px`
-        gsap.fromTo([...itemsNode],
+        gsap.fromTo([...itemsNode].reverse(),
             {
             y:0
         },{

@@ -113,9 +113,9 @@ const Slider:React.FC = ():JSX.Element => {
                          <h2>{title}</h2>
                          <h3>{subtitle}</h3>
                          <p>{text}</p>
-                         <Link to={github}>
+                         <a href={github}>
                             <button><img src="/gitlab-icon.png" />See on Github</button>
-                         </Link>
+                         </a>
                      </div>        
                  )
              })
@@ -128,9 +128,9 @@ const Slider:React.FC = ():JSX.Element => {
             return node.slides.map((slide:string,index:number) => { 
                  return (
                      <div key={index} className="slider__img">
-                         <Link to={github}>
+                         <a href={github}>
                             <img src={`/${slide}`} />
-                         </Link>
+                         </a>
                      </div>
              )})
          })
