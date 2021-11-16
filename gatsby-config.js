@@ -4,6 +4,7 @@ module.exports = {
     siteMetadata: {
         title: `Portfolio D.S.`,
         description: `Dominik Stepien. Front End Developer with 1.5 years experience`,
+        keywords:"Front End Developer, Dominik Stepien, React Developer, Gatsby Developer"
         author: `Dominik Stepien`,
     },
     plugins: [{
