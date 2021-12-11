@@ -237,7 +237,11 @@ const IndexPage: React.FC = (): JSX.Element => {
       let sms = formData
       sms = JSON.stringify(sms)
       
-      axios.post('https://portfoliosms.herokuapp.com/send-sms',sms)
+      axios.post('https://portfoliosms.herokuapp.com/send-sms',sms,{
+         headers: {
+          'Content-Type': 'application/json'
+         }
+      })
       // axios.post('http://localhost:8080/send-mail',sms)
         .then(res => {console.log('res',res)})
         .catch(err => {console.log(err)})
