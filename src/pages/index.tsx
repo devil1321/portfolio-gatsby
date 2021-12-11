@@ -238,6 +238,15 @@ const IndexPage: React.FC = (): JSX.Element => {
             email:'',
             message:''
           })
+      axios.post('https://portfoliosms.herokuapp.com/send-sms',formData)
+      // axios.post('http://localhost:8080/send-mail',formData)
+        .then(res => {console.log('res',res)})
+        .catch(err => {console.log(err)})
+        setFormData({
+            name:'',
+            email:'',
+            message:''
+          })
     }else{
       setIsError(true)
       setTimeout(()=>{
