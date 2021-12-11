@@ -233,7 +233,11 @@ const IndexPage: React.FC = (): JSX.Element => {
       // axios.post('http://localhost:8080/send-mail',formData)
         .then(res => {console.log('res',res)})
         .catch(err => {console.log(err)})
-      axios.post('https://portfoliosms.herokuapp.com/send-sms',formData)
+      
+      let sms = formData
+      sms = JSON.stringify(sms)
+      
+      axios.post('https://portfoliosms.herokuapp.com/send-sms',sms)
       // axios.post('http://localhost:8080/send-mail',formData)
         .then(res => {console.log('res',res)})
         .catch(err => {console.log(err)})
