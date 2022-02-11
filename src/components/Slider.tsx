@@ -124,11 +124,11 @@ const Slider:React.FC = ():JSX.Element => {
   
     const renderImages = () =>{
         return currentSlides.map(node => {
-            const { github } = node.articles[count].node
+            const { link } = node.articles[count].node
             return node.slides.map((slide:string,index:number) => { 
                  return (
                      <div key={index} className="slider__img">
-                         <a href={github}>
+                         <a href={link}>
                             <img src={`/${slide}`} />
                          </a>
                      </div>

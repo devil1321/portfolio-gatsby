@@ -78,12 +78,12 @@ const IndexPage: React.FC = (): JSX.Element => {
       height = 150;
     }
     else if (id === "Websites") {
-      height = 470;
+      height = 600;
     } else if (id === "Applications") {
       height = 310;
     }
 
-    setCurrent(category.slides);
+    setCurrent(category);
   
 
     let tl = gsap.timeline();
@@ -271,7 +271,6 @@ const IndexPage: React.FC = (): JSX.Element => {
   }
 
   useEffect(() => {
-    console.log(formData)
     if(!isSet){
       handleService();
       handleProjects();
@@ -350,11 +349,14 @@ const IndexPage: React.FC = (): JSX.Element => {
                 <span></span>
                 <span></span>
               </div>
-              {current.map((slide) => (
-                <Link to="#">
-                  <img src={`${slide}`} />
-                </Link>
-              ))}
+              {current.slides?.map((slide,index) => {
+                const { link } = current.articles[index].node
+                return(
+                  <Link to={link}>
+                    <img src={`${slide}`} />
+                  </Link>
+                  )
+              })}
             </div>
          
         </div>
