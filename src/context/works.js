@@ -42,7 +42,7 @@ export const data = [{
     },
     {
         category: 'Websites',
-        slides: ['websites/booking-clone.png','websites/free-landing-page.png', 'websites/portfolio.png', 'websites/club-in.png', 'websites/easy-bank.png', 'websites/ice-and-cake.png', 'websites/manage-landing-page.png', 'websites/loopstudios.png', 'websites/apps-market.png', 'websites/rooms-homepage.png', ],
+        slides: ['websites/booking-clone.png','websites/youtube-clone.png','websites/free-landing-page.png', 'websites/portfolio.png', 'websites/club-in.png', 'websites/easy-bank.png', 'websites/ice-and-cake.png', 'websites/manage-landing-page.png', 'websites/loopstudios.png', 'websites/apps-market.png', 'websites/rooms-homepage.png', ],
         articles: [
             {
                 node: {
@@ -51,6 +51,16 @@ export const data = [{
                     text: 'Booking Clone made with Gatsby and React-Redux',
                     github: 'https://github.com/devil1321/booking-clone/tree/master',
                     link:'https://booking-clone-gatsby.netlify.app'
+                }
+
+            },
+            {
+                node: {
+                    title: 'Youtube Clone',
+                    subtitle: 'HTML/CSS/SCSS/JS/TypeScript/React/React-Redux',
+                    text: 'Booking Clone made with React TypeScript and React-Redux',
+                    github: 'https://github.com/devil1321/youtube-clone-react-redux/tree/dev',
+                    link:'https://youtube-clone-redux.netlify.app'
                 }
 
             },
